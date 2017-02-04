@@ -2,6 +2,8 @@
 
 A simple counter app for the card game "Tichu", created with Vue.js in a single-file (.vue) component.
 
+DEMO: https://nikostsaganos.github.io/tichu-counter/
+
 ## Build Setup
 
 ``` bash
