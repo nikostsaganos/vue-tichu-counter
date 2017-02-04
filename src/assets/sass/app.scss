@@ -1,0 +1,388 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "variables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "bootswatch";
+
+body {
+    background: #f1f1f1;
+}
+
+.navbar {
+    background: #fff;
+    position: relative;
+    z-index: 5;
+}
+
+.navbar-header {
+    float: left;
+}
+.top-setting {
+    display: inline-block;
+    padding-top: 22px;
+    padding-left: 10px;
+}
+.top-controls {
+    float: right;
+    padding-top: 15px;
+    .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.players-row {
+    position: relative;
+    .players-vs {
+        position: absolute;
+        left: 50%;
+        top: 15px;
+        width: 40px;
+        margin-left: -20px;
+        text-align: center;
+        font-size: 22px;
+    }
+}
+
+.player-name {
+    > div {
+        position: relative;
+        span {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 16px;
+            line-height: 1.846;
+            border-bottom: 1px solid #ccc;
+        }
+        p {
+            transition: all 0.2s ease-out;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            margin: 0;
+            font-size: 13px;
+            font-weight: 300;
+            transform: translateY(20px);
+            opacity: 0;
+            color: #888;
+            text-align: center;
+        }
+        .glyphicon {
+
+        }
+        &:hover {
+            p {
+                display: block;
+            }
+        }
+        &:hover {
+            p {
+                opacity: 1;
+                transform: translateY(25px);
+            }
+        }
+    }
+    input.form-control {
+        border-bottom: 1px solid #fff;
+        font-weight: 300;
+    }
+    > div span, input.form-control {
+        text-align: center;
+        font-size: 36px;
+        height: auto;
+    }
+}
+
+.player-total {
+    padding: 10px 0 0 0;
+    font-size: 50px;
+    text-align: center;
+}
+
+.player-tile {
+    background: #fff;
+    padding: 30px 0 20px 0;
+    border-radius: $border-radius-base;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-score {
+    text-align: center;
+    a, strong {
+        display: inline-block;
+        font-size: 26px;
+        line-height: 40px;
+    }
+    strong {
+        min-width: 60px;
+    }
+    a {
+        background: #eee;
+        text-decoration: none;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        border-radius: 20px;
+        &:first-child:hover {
+            background: $brand-danger;
+            color: #fff;
+        }
+        &:last-child:hover {
+            background: $brand-success;
+            color: #fff;
+        }
+    }
+}
+
+.player-extras {
+    padding: 10px 0;
+    text-align: center;
+    select, label {
+        display: inline-block;
+        margin: 5px 15px;
+    }
+    select {
+        max-width: 160px;
+    }
+    label {
+        font-size: 16px;
+    }
+}
+
+.next-round {
+    padding: 20px 0;
+    text-align: center;
+    a {
+        width: 100%;
+        min-width: 200px;
+        max-width: 300px;
+    }
+}
+
+.game-log {
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    font-size: 16px;
+    tr {
+        td, th {
+            width: 40%;
+            &:first-child {
+                width: 10%;
+                font-weight: 300;
+                color: #999;
+            }
+            &:last-child {
+                width: 10%;
+            }
+        }
+    }
+    tbody {
+        tr {
+            td {
+                &:first-child, span {
+                    font-weight: 300;
+                    color: #999;
+                }
+                span {
+                    display: inline-block;
+                    padding: 0 10px;
+                }
+            }
+        }
+    }
+}
+
+.past-games {
+    background: #e52d27;
+    background: linear-gradient(to left, #e52d27 , #b31217);
+    position: absolute;
+    width: 100%;
+    min-height: 500px;
+    z-index: 3;
+    margin-top: -24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    .past-games-controls {
+        margin-top: 50px;
+        .btn {
+            margin: 0 6px 10px 0;
+        }
+    }
+
+    h3 {
+        margin-top: 20px;
+        color: #fff;
+    }
+
+    .past-game-tiles {
+        padding: 50px 0 30px;
+    }
+
+    .past-game-tile {
+
+        display: inline-block;
+        width: 30%;
+        vertical-align: top;
+
+        > div {
+            position: relative;
+            margin: 5px;
+            background: #fff;
+            padding: 15px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+            &:before {
+                transition: all 0.4s ease-out;
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, .5);
+                position: absolute;
+                z-index: 7;
+                opacity: 0;
+                transform: translateY(100%);
+            }
+            .buttons {
+                transition: all 0.4s ease-out 0.2s;
+                position: absolute;
+                z-index: 8;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                margin-top: -20px;
+                height: 40px;
+                line-height: 40px;
+                opacity: 0;
+                transform: translateY(30%);
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                .buttons {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        h4, h5, p {
+            margin: 0;
+        }
+        p {
+            font-weight: 300;
+            color: #999;
+        }
+        h4 {
+            // color: #fff;
+            margin: 5px 0;
+            font-size: 18px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: 600;
+        }
+        h5 {
+            font-size: 16px;
+        }
+
+    }
+}
+
+@media (max-width: $screen-sm-max) {
+    .past-game-tiles {
+        padding: 20px 0 !important;
+    }
+    .past-game-tile {
+        width: 50% !important;
+    }
+}
+@media (max-width: $screen-xs-max) {
+    .navbar-header {
+        float: none;
+        padding: 0;
+        margin: 0;
+    }
+    .navbar-brand {
+        font-size: 18px;
+        float: none;
+        text-align: center;
+        display: block;
+        width: 100%;
+        padding: 10px 0 0 0;
+        height: auto;
+    }
+    .top-controls {
+        float: none;
+        padding: 10px 0;
+        text-align: center;
+        .btn {
+            margin: 0 5px;
+        }
+    }
+
+    .players-row {
+        .players-vs {
+            display: none;
+        }
+    }
+    .player-name {
+        > div span, input.form-control {
+            font-size: 20px;
+        }
+    }
+    .player-total {
+        font-size: 40px;
+    }
+    .player-tile {
+        padding: 20px 0 10px 0;
+    }
+    .player-score {
+        a, strong {
+            font-size: 22px;
+        }
+    }
+
+    .player-extras {
+        select, label {
+            display: inline-block;
+            margin: 5px 15px;
+            font-size: 14px;
+        }
+        select {
+            max-width: 130px;
+        }
+    }
+
+    .past-games {
+        .past-games-controls {
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+
+    .past-game-tiles {
+        padding: 10px 0 !important;
+    }
+    .past-game-tile {
+        width: 100% !important;
+        > div {
+            margin: 1px 0 !important;
+        }
+    }
+}
