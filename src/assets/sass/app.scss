@@ -219,94 +219,96 @@ body {
         color: #fff;
     }
 
-    .past-game-tiles {
-        padding: 50px 0 30px;
-    }
+}
 
-    .past-game-tile {
+.past-game-tiles {
+    padding: 50px 0 30px;
+}
 
-        display: inline-block;
-        width: 30%;
-        vertical-align: top;
+.past-game-tile {
 
-        > div {
-            position: relative;
-            margin: 5px;
-            background: #fff;
-            padding: 15px;
-            text-align: center;
-            overflow: hidden;
-            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
 
+    > div {
+        position: relative;
+        margin: 5px;
+        background: #fff;
+        padding: 15px;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+
+        &:before {
+            transition: all 0.4s ease-out;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .5);
+            position: absolute;
+            z-index: 7;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .buttons {
+            transition: all 0.4s ease-out 0.2s;
+            position: absolute;
+            z-index: 8;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            margin-top: -20px;
+            height: 40px;
+            line-height: 40px;
+            opacity: 0;
+            transform: translateY(30%);
+        }
+
+        &:hover {
             &:before {
-                transition: all 0.4s ease-out;
-                content: "";
-                display: block;
-                width: 100%;
-                height: 100%;
-                left: 0;
-                top: 0;
-                background: rgba(0, 0, 0, .5);
-                position: absolute;
-                z-index: 7;
-                opacity: 0;
-                transform: translateY(100%);
+                opacity: 1;
+                transform: translateY(0);
             }
             .buttons {
-                transition: all 0.4s ease-out 0.2s;
-                position: absolute;
-                z-index: 8;
-                width: 100%;
-                top: 50%;
-                left: 0;
-                margin-top: -20px;
-                height: 40px;
-                line-height: 40px;
-                opacity: 0;
-                transform: translateY(30%);
-            }
-
-            &:hover {
-                &:before {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-                .buttons {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-
-        h4, h5, p {
-            margin: 0;
-        }
-        p {
-            font-weight: 300;
-            color: #999;
-        }
-        h4 {
-            // color: #fff;
-            margin: 5px 0;
-            font-size: 18px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font-weight: 600;
-        }
-        h5 {
-            font-size: 16px;
-        }
-
     }
+
+    h4, h5, p {
+        margin: 0;
+    }
+    p {
+        font-weight: 300;
+        color: #999;
+    }
+    h4 {
+        // color: #fff;
+        margin: 5px 0;
+        font-size: 18px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-weight: 600;
+    }
+    h5 {
+        font-size: 16px;
+    }
+
 }
+
 
 @media (max-width: $screen-sm-max) {
     .past-game-tiles {
-        padding: 20px 0 !important;
+        padding: 20px 0;
     }
     .past-game-tile {
-        width: 50% !important;
+        width: 50%;
     }
 }
 @media (max-width: $screen-xs-max) {
@@ -337,6 +339,10 @@ body {
         .players-vs {
             display: none;
         }
+        .col-xs-6 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
     .player-name {
         > div span, input.form-control {
@@ -353,16 +359,25 @@ body {
         a, strong {
             font-size: 22px;
         }
+        strong {
+            min-width: 50px;
+        }
+        a {
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 18px;
+        }
     }
 
     .player-extras {
         select, label {
             display: inline-block;
-            margin: 5px 15px;
-            font-size: 14px;
+            margin: 5px 0px;
+            font-size: 13px;
         }
         select {
-            max-width: 130px;
+            max-width: 120px;
         }
     }
 
@@ -377,12 +392,29 @@ body {
     }
 
     .past-game-tiles {
-        padding: 10px 0 !important;
+        padding: 10px 0;
     }
     .past-game-tile {
-        width: 100% !important;
+        width: 100%;
         > div {
-            margin: 1px 0 !important;
+            margin: 1px 0;
+            padding-bottom: 55px;
+            &:before {
+                display: none;
+            }
+            .buttons {
+                bottom: 10px;
+                top: auto;
+                left: 0;
+                margin-top: 0;
+                height: 40px;
+                line-height: 40px;
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
+
+
+
 }
